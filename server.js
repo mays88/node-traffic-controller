@@ -3,9 +3,9 @@ import dotenv from "dotenv";
 import { app } from "./app.js";
 
 import axios from "axios";
-
+import cors from "cors";
+app.use(cors());
 dotenv.config();
-
 const DB = process.env.ATLAS_URI.replace("<PASSWORD>", process.env.PASSWORD);
 
 mongoose.connect(DB).then(() => console.log("DB connection successful!"));
