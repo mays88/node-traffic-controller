@@ -8,7 +8,7 @@ export const getEvents = async (req, res) => {
             status: "Success",
             results: response.length,
             data: {
-                todos: response,
+                events: response,
             },
         });
     } catch (error) {
