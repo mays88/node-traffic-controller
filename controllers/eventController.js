@@ -58,7 +58,8 @@ export const updateEvent = async (req, res) => {
 };
 
 export const deleteEvent = async (req, res) => {
-    await Event.deleteOne();
+    const id = req.params.id;
+    await Event.deleteOne({ _id: id });
 
     res.status(204).json({
         status: "Success",
