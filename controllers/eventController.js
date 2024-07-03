@@ -47,7 +47,8 @@ export const createEvent = async (req, res) => {
 };
 
 export const updateEvent = async (req, res) => {
-    const updEvent = await Event.updateOne(req.body);
+    const id = req.params.id;
+    const updEvent = await Event.findOneandUpdate(id, req.body);
     res.status(200).json({
         status: "Success",
         data: {
