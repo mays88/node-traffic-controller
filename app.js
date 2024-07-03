@@ -1,12 +1,12 @@
 import express from "express";
 import cors from "cors";
-import { router as todoRouter } from "./routes/todos.js";
+import { router as eventRouter } from "./routes/events.js";
 export const app = express();
 
 app.use(express.json());
 app.use(cors());
 
-app.use("/api/v1/todos", todoRouter);
+app.use("/api/v1/events", eventRouter);
 
 app.get("/ai", async (req, res) => {
     try {

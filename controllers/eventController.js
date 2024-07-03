@@ -1,8 +1,8 @@
-import { Todo } from "../models/todoModel.js";
+import { Event } from "../models/eventModel.js";
 
-export const getTodos = async (req, res) => {
+export const getEvents = async (req, res) => {
     try {
-        const response = await Todo.find();
+        const response = await Event.find();
 
         res.status(200).json({
             status: "Success",
@@ -16,26 +16,26 @@ export const getTodos = async (req, res) => {
     }
 };
 
-export const getTodo = async (req, res) => {
+export const getEvent = async (req, res) => {
     const id = req.params.id;
-    const todo = await Todo.findById(id);
+    const event = await Event.findById(id);
 
     res.status(200).json({
         status: "Success",
         data: {
-            todo,
+            event,
         },
     });
 };
 
-export const createTodo = async (req, res) => {
+export const createEvent = async (req, res) => {
     try {
-        const newTodo = await Todo.create(req.body);
+        const newEvent = await Event.create(req.body);
 
         res.status(201).json({
             status: "Success",
             data: {
-                todo: newTodo,
+                event: newEvent,
             },
         });
     } catch (error) {
@@ -46,18 +46,18 @@ export const createTodo = async (req, res) => {
     }
 };
 
-export const updateTodo = async (req, res) => {
-    const updTodo = await Todo.updateOne(req.body);
+export const updateEvent = async (req, res) => {
+    const updEvent = await Event.updateOne(req.body);
     res.status(200).json({
         status: "Success",
         data: {
-            todo: updTodo,
+            event: updEvent,
         },
     });
 };
 
-export const deleteTodo = async (req, res) => {
-    await Todo.deleteOne();
+export const deleteEvent = async (req, res) => {
+    await Event.deleteOne();
 
     res.status(204).json({
         status: "Success",

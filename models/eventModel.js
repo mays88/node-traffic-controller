@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
 
-const todoSchema = new mongoose.Schema(
+const eventSchema = new mongoose.Schema(
     {
         id: {
             type: mongoose.Types.ObjectId,
-            ref: "Todo",
+            ref: "Event",
         },
 
         userId: {
@@ -24,4 +24,4 @@ const todoSchema = new mongoose.Schema(
     { timestamps: true }
 );
 
-export const Todo = mongoose.model("Todo", todoSchema);
+export const Event = mongoose.model("Event", eventSchema);
