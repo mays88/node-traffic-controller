@@ -30,6 +30,9 @@ const eventSchema = new mongoose.Schema(
         type: {
             type: String,
         },
+        allDay: {
+            type: Boolean,
+        },
         ingredients: [{ measurement: String, name: String }],
         equipment: [String],
     },
