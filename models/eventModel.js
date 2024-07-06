@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { type } from "os";
 
 const eventSchema = new mongoose.Schema(
     {
@@ -20,6 +21,17 @@ const eventSchema = new mongoose.Schema(
             type: Boolean,
             default: false,
         },
+        startDate: {
+            type: Date,
+        },
+        endDate: {
+            type: Date,
+        },
+        type: {
+            type: String,
+        },
+        ingredients: [{ measurement: String, name: String }],
+        equipment: [String],
     },
     { timestamps: true }
 );
